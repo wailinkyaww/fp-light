@@ -1,24 +1,29 @@
 {
-  "name": "fp-util-light",
-  "version": "0.0.1",
-  "description": "Light-weight functional utilities for functional programming with JavaScript",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wailinkyaww/fp-util.git"
-  },
-  "keywords": [
-    "fp",
-    "utility",
-    "functional-programming"
-  ],
-  "author": "Wai Lin Kyaw",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/wailinkyaww/fp-util/issues"
-  },
-  "homepage": "https://github.com/wailinkyaww/fp-util#readme"
+    "name": "fp-light",
+    "version": "0.0.1",
+    "description": "Light-weight functional utilities for functional programming with JavaScript",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "format": "prettier ./*.js --write"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wailinkyaww/fp-util.git"
+    },
+    "keywords": [
+        "fp",
+        "light weight",
+        "utility",
+        "functional-programming"
+    ],
+    "author": "Wai Lin Kyaw",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/wailinkyaww/fp-light/issues"
+    },
+    "homepage": "https://github.com/wailinkyaww/fp-light#readme",
+    "devDependencies": {
+        "prettier": "^2.1.2"
+    }
 }
