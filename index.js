@@ -1,8 +1,9 @@
-(function defineModule(name, context, definition) {
-    if (typeof module !== 'undefined' && module.exports)
+(function UMD(name, context, definition) {
+    if (typeof define === 'function' && define.amd) define(definition);
+    else if (typeof module !== 'undefined' && module.exports)
         module.exports = definition();
     else context[name] = definition(name, context);
-})('fp', this, function definition(_, __) {
+})('fp', this, function definition(name, context) {
     'use strict';
 
     curry = curry(2, curry);
@@ -217,7 +218,7 @@
 
     // positional
     function head(value) {
-        var [initial, _] = value;
+        var [initial] = value;
         if (typeof value == 'string' && value.length == 0) return '';
         return initial;
     }
