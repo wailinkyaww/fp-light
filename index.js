@@ -6,14 +6,10 @@
 })('fp', this, function definition(name, context) {
     'use strict';
 
-    curry = curry(2, curry);
-
-    return {
-        identity: curry(1)(identity),
-        constant: curry(1)(constant),
+    var publicAPI = {
+        identity,
+        constant,
         curry,
-        compose,
-        pipe,
         unary,
         binary,
         flip,
@@ -24,22 +20,31 @@
         not,
         when,
         trampoline,
-        map: curry(2)(map),
-        filter: curry(2)(filterIn),
-        filterIn: curry(2)(filterIn),
-        filterOut: curry(2)(filterOut),
-        reduce: curry(3)(reduce),
+        map,
+        filter: filterIn,
+        filterIn,
+        filterOut,
+        reduce,
         toLower,
         toUpper,
-        mapObj: curry(2)(mapObj),
+        split,
+        mapObj,
         keys,
-        prop: curry(2)(prop),
-        setProp: curry(3)(setProp),
-        pick: curry(2)(pick),
-        pickAll: curry(2)(pickAll),
+        prop,
+        setProp,
+        pick,
+        pickAll,
         head,
         tail,
         last
+    };
+
+    publicAPI = mapObj(curry, publicAPI);
+
+    return {
+        pipe,
+        compose,
+        ...publicAPI
     };
 
     // fp core
@@ -53,17 +58,14 @@
         };
     }
 
-    function curry(arity, fn) {
-        return (function nextCurried(prevArgs) {
-            return function curried(nextArg) {
-                var args = prevArgs.concat([nextArg]);
-                if (args.length >= arity) {
-                    return fn(...args);
-                } else {
-                    return nextCurried(args);
-                }
-            };
-        })([]);
+    // from Brian Lonsdorf, DrBoolean
+    function curry(fn) {
+        var arity = fn.length;
+
+        return function $curry(...args) {
+            if (args.length < arity) return $curry.bind(null, ...args);
+            return fn(...args);
+        };
     }
 
     function compose(...fns) {
@@ -174,6 +176,10 @@
 
     function toUpper(str = '') {
         return str.toUpperCase();
+    }
+
+    function split(delimiter, str = '') {
+        return str.split(delimiter);
     }
 
     // Object
