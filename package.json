@@ -4,12 +4,11 @@
     "description": "Light-weight functional utilities for functional programming with JavaScript",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier ./*.js --write"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/wailinkyaww/fp-util.git"
+        "url": "git+https://github.com/wailinkyaww/fp-light.git"
     },
     "keywords": [
         "fp",

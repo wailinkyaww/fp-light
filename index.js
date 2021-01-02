@@ -3,7 +3,7 @@
     else if (typeof module !== 'undefined' && module.exports)
         module.exports = definition();
     else context[name] = definition(name, context);
-})('fp', this, function definition(name, context) {
+})('fpLight', this, function definition(name, context) {
     'use strict';
 
     var publicAPI = {
