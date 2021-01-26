@@ -144,11 +144,8 @@
         };
     }
 
-    // list
-    function map(mapperFn, arr) {
-        var newList = [];
-        for (let el of arr) newList.push(mapperFn(el));
-        return newList;
+    function map(fn, functor) {
+        return functor.map(fn);
     }
 
     function filterIn(predicate, arr) {
